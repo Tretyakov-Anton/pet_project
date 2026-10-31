@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E6S7kfdAWGw=",
+  "dgSpecHash": "pXVglfq3yzI=",
   "success": true,
-  "projectFilePath": "d:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates\\DocumentTemplates.csproj",
+  "projectFilePath": "D:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates\\DocumentTemplates.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anton\\.nuget\\packages\\avalonia\\12.1.4\\avalonia.12.1.4.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",
@@ -26,8 +26,7 @@
     "C:\\Users\\anton\\.nuget\\packages\\harfbuzzsharp.nativeassets.webassembly\\8.3.1.3\\harfbuzzsharp.nativeassets.webassembly.8.3.1.3.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\8.3.1.3\\harfbuzzsharp.nativeassets.win32.8.3.1.3.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\microcom.runtime\\0.11.6\\microcom.runtime.0.11.6.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.win32.systemevents\\10.0.0\\microsoft.win32.systemevents.10.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\reactiveui\\26.0.1\\reactiveui.26.0.1.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\reactiveui.avalonia\\12.1.6\\reactiveui.avalonia.12.1.6.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\reactiveui.binding\\9.1.0\\reactiveui.binding.9.1.0.nupkg.sha512",
@@ -47,15 +46,10 @@
     "C:\\Users\\anton\\.nuget\\packages\\splat.builder\\21.0.0\\splat.builder.21.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\splat.core\\21.0.0\\splat.core.21.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\splat.logging\\21.0.0\\splat.logging.21.0.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\system.drawing.common\\10.0.0\\system.drawing.common.10.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\system.io.packaging\\4.5.0\\system.io.packaging.4.5.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\system.reactive\\7.0.0\\system.reactive.7.0.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\tmds.dbus.protocol\\0.94.1\\tmds.dbus.protocol.0.94.1.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.29\\microsoft.netcore.app.ref.8.0.29.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.29\\microsoft.windowsdesktop.app.ref.8.0.29.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.29\\microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.29\\microsoft.netcore.app.host.win-x64.8.0.29.nupkg.sha512"
+    "C:\\Users\\anton\\.nuget\\packages\\tmds.dbus.protocol\\0.94.1\\tmds.dbus.protocol.0.94.1.nupkg.sha512"
   ],
   "logs": []
 }

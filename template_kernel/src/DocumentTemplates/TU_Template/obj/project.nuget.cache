@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TFCBlaXmJTQ=",
+  "dgSpecHash": "FTy3IFfdDTc=",
   "success": true,
   "projectFilePath": "D:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\TU_Template\\TU_Template.csproj",
   "expectedPackageFiles": [
@@ -10,8 +10,7 @@
     "C:\\Users\\anton\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\docx\\3.0.0\\docx.3.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\microcom.runtime\\0.11.6\\microcom.runtime.0.11.6.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.win32.systemevents\\10.0.0\\microsoft.win32.systemevents.10.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\reactiveui\\26.0.1\\reactiveui.26.0.1.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\reactiveui.avalonia\\12.1.6\\reactiveui.avalonia.12.1.6.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\reactiveui.binding\\9.1.0\\reactiveui.binding.9.1.0.nupkg.sha512",
@@ -26,11 +25,8 @@
     "C:\\Users\\anton\\.nuget\\packages\\splat.builder\\21.0.0\\splat.builder.21.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\splat.core\\21.0.0\\splat.core.21.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\splat.logging\\21.0.0\\splat.logging.21.0.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\system.io.packaging\\8.0.0\\system.io.packaging.8.0.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.29\\microsoft.netcore.app.ref.8.0.29.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.29\\microsoft.windowsdesktop.app.ref.8.0.29.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.29\\microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512"
+    "C:\\Users\\anton\\.nuget\\packages\\system.drawing.common\\10.0.0\\system.drawing.common.10.0.0.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\system.io.packaging\\8.0.0\\system.io.packaging.8.0.0.nupkg.sha512"
   ],
   "logs": [
     {
@@ -42,7 +38,7 @@
       "filePath": "D:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\TU_Template\\TU_Template.csproj",
       "libraryId": "System.IO.Packaging",
       "targetGraphs": [
-        "net8.0"
+        "net10.0"
       ]
     },
     {
@@ -54,7 +50,7 @@
       "filePath": "D:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\TU_Template\\TU_Template.csproj",
       "libraryId": "System.IO.Packaging",
       "targetGraphs": [
-        "net8.0"
+        "net10.0"
       ]
     }
   ]

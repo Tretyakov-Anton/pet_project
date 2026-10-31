@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    <!-- Иконка exe: её же подхватывают ярлыки на рабочем столе и в меню «Пуск» -->
+ 
     <ApplicationIcon>..\DocumentTemplates.CoreLibrary\Assets\Icons\icvao.ico</ApplicationIcon>
     <AssemblyTitle>Шаблоны документов</AssemblyTitle>
     <Product>Шаблоны документов</Product>
