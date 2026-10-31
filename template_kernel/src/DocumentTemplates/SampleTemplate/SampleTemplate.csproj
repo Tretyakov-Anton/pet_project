@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocX" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DocumentTemplates.CoreLibrary\DocumentTemplates.CoreLibrary.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+
+  <Target Name="PostBuildCopyToTemplates" AfterTargets="Build">
+    <PropertyGroup>
+      <TemplatesDir>$(SolutionDir)DocumentTemplates\bin\$(Configuration)\net8.0\Templates\</TemplatesDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <PluginFiles Include="$(TargetDir)$(AssemblyName).dll" />
+      <PluginFiles Include="$(TargetDir)$(AssemblyName).deps.json" Condition="Exists('$(TargetDir)$(AssemblyName).deps.json')" />
+      <PluginFiles Include="$(TargetDir)$(AssemblyName).runtimeconfig.json" Condition="Exists('$(TargetDir)$(AssemblyName).runtimeconfig.json')" />
+    </ItemGroup>
+    <MakeDir Directories="$(TemplatesDir)" />
+    <Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(TemplatesDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TU_Template.Views.ElementsView"
+             x:Name="Root"
+             Classes="AdminContent">
+	<Grid RowDefinitions="* auto">
+		<ScrollViewer Margin="2 0" Padding="0 0 8 0">
+			<ItemsControl ItemsSource="{Binding Path=TemplateData.CollectionElements}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border Classes="AdminListItem"
+                                Padding="6" Margin="0 0 0 12">
+							<StackPanel>
+								<Grid ColumnDefinitions="auto *" RowDefinitions="auto auto auto auto auto">
+									<TextBlock Grid.Row="0" Grid.Column="0" Margin="0 0 8 0" Text="Название:" />
+									<TextBox Grid.Row="0" Grid.Column="1" Margin="0 0 0 0"
+                                             Text="{Binding Path=Value.Name}"
+                                             VerticalAlignment="Center" />
+
+									<TextBlock Grid.Row="1" Grid.Column="0" Margin="0 4 8 0" Text="Представляет собой:" />
+									<TextBox Grid.Row="1" Grid.Column="1" Margin="0 4 0 0"
+                                             Text="{Binding Path=Value.Description}"
+                                             VerticalAlignment="Center" />
+
+									<TextBlock Grid.Row="2" Grid.Column="0" Margin="0 4 8 0" Text="Группа:" />
+									<ComboBox Grid.Row="2" Grid.Column="1" Margin="0 4 0 0"
+                                              ItemsSource="{Binding Path=Container.Groups}"
+                                              VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                                              DisplayMemberBinding="{Binding Path=Name}"
+                                              SelectedItem="{Binding Path=Value.Group}" />
+								</Grid>
+
+								<Grid IsVisible="{Binding Path=Value.ParameterValues.Count}"
+                                      ColumnDefinitions="* * *" Margin="0 8 0 0">
+									<TextBlock Grid.Column="0" Margin="0 0 4 0"
+                                               TextAlignment="Center" Text="Название" />
+									<TextBlock Grid.Column="1" Margin="0 0 4 0"
+                                               TextAlignment="Center" Text="Не менее" />
+									<TextBlock Grid.Column="2" Margin="0 0 4 0"
+                                               TextAlignment="Center" Text="Не более" />
+								</Grid>
+
+								<ItemsControl ItemsSource="{Binding Path=Value.ParameterValues}">
+									<ItemsControl.ItemTemplate>
+										<DataTemplate>
+											<Grid ColumnDefinitions="* * *" Margin="0 0 0 8">
+												<TextBlock Grid.Column="0" Margin="0 0 4 0"
+                                                           VerticalAlignment="Center" TextAlignment="Center"
+                                                           Text="{Binding Path=Parameter.Name}" />
+												<TextBox Grid.Column="1" Text="{Binding Path=Limits.AtLeast}"
+                                                         VerticalAlignment="Center" Margin="0 0 4 0" />
+												<TextBox Grid.Column="2" Text="{Binding Path=Limits.AtMost}"
+                                                         VerticalAlignment="Center" Margin="0 0 4 0" />
+											</Grid>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+
+				<Button Margin="0 8 0 0" Padding="16 0"
+						HorizontalAlignment="Stretch"
+						Command="{Binding DataContext.RemoveCommand, ElementName=Root}"
+						CommandParameter="{Binding Value}">
+									Удалить эту микросхему
+								</Button>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+		<Button Grid.Row="1" Margin="2 8 2 0" FontSize="16" Padding="0 8"
+                Command="{Binding Path=AddCommand}"
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+			Добавить микросхему
+		</Button>
+	</Grid>
+</UserControl>

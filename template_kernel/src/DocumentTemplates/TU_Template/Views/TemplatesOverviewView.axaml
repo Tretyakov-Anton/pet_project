@@ -1,0 +1,98 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             x:Class="TU_Template.Views.TemplatesOverviewView"
+             x:DataType="vm:TemplatesOverviewViewModel"
+             Classes="AdminContent"
+             mc:Ignorable="d"
+             d:DesignWidth="900" d:DesignHeight="600">
+
+    <Grid RowDefinitions="Auto *">
+        <Border Classes="AdminCardHeader" Grid.Row="0">
+            <StackPanel Orientation="Vertical" Spacing="2">
+                <TextBlock Text="Технические условия (ТУ)" Classes="AdminCardTitle" HorizontalAlignment="Left"/>
+                <TextBlock Text="Заполните разделы по порядку сверху вниз, затем создайте документ Word на вкладке «Проект и документ»"
+                           Classes="AdminCardHint" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" Margin="0,12,0,0" >
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto Auto Auto Auto">
+                <Button Grid.Row="0" Grid.Column="0"
+                        Classes="AdminTile"
+                        Command="{Binding ShowFileSettingsCommand}">
+                    <StackPanel>
+                        <TextBlock Text="Проект и документ"/>
+                        <TextBlock Text="Шаблон, папка для результата, создание документа Word" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="0" Grid.Column="1"
+                        Classes="AdminTile"
+                        Command="{Binding ShowVariablesCommand}">
+                    <StackPanel>
+                        <TextBlock Text="Переменные шаблона"/>
+                        <TextBlock Text="Номер ТУ и прочие подстановки вида ${имя}" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Сначала группы: микросхемы привязываются к уже созданной группе -->
+                <Button Grid.Row="1" Grid.Column="0"
+                        Classes="AdminTile"
+                        Command="{Binding ShowGroupsCommand}">
+                    <StackPanel>
+                        <TextBlock Text="Группы микросхем"/>
+                        <TextBlock Text="Электрические параметры и предельные режимы группы" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="1" Grid.Column="1"
+                        Classes="AdminTile"
+                        Command="{Binding ShowElementsCommand}">
+                    <StackPanel>
+                        <TextBlock Text="Микросхемы (элементы)"/>
+                        <TextBlock Text="Названия, описания и нормы параметров" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="2" Grid.Column="0"
+                        Classes="AdminTile"
+                        Command="{Binding ShowApplicationA}">
+                    <StackPanel>
+                        <TextBlock Text="Приложение А"/>
+                        <TextBlock Text="Термины, обозначения и определения" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="2" Grid.Column="1"
+                        Classes="AdminTile"
+                        Command="{Binding ShowApplicationB}">
+                    <StackPanel>
+                        <TextBlock Text="Приложение Б"/>
+                        <TextBlock Text="Ссылочные документы — раздел в разработке" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="3" Grid.Column="0"
+                        Classes="AdminTile"
+                        Command="{Binding ShowApplicationV}">
+                    <StackPanel>
+                        <TextBlock Text="Приложение В"/>
+                        <TextBlock Text="Габаритные чертежи и описания внешнего вида" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="3" Grid.Column="1"
+                        Classes="AdminTile"
+                        Command="{Binding ShowApplicationG}">
+                    <StackPanel>
+                        <TextBlock Text="Приложение Г"/>
+                        <TextBlock Text="Контрольно-измерительные приборы и оборудование" Classes="AdminTileHint"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

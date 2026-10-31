@@ -1,0 +1,101 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="TU_Template.Views.AddGchDialog"
+        Classes="AdminDialog"
+        Title="Добавить позицию"
+        Width="1100" Height="500"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        >
+
+    <Border Classes="AdminCard"
+            Margin="16"
+            >
+        <Grid RowDefinitions="Auto * Auto">
+            <Border Grid.Row="0" Classes="AdminCardHeader">
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="24"
+                            Height="24"
+                            Background="#2F6FE4"
+                            CornerRadius="4"
+                            Margin="0,0,12,0"/>
+                    <TextBlock Grid.Column="1"
+                               Text="СПРАВОЧНИК ГЧ"
+                               HorizontalAlignment="Center"
+                               Classes="AdminCardTitle"/>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1" ColumnDefinitions="* *">
+                <!-- Связка первый+второй столбец -->
+                <Border Grid.Column="0"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="8"
+                        Margin="8"
+                        Background="{StaticResource BackgroundBrush}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Название корпуса" FontWeight="SemiBold"/>
+                        <ComboBox Width="300" x:Name="CaseComboBox"
+                                  SelectedIndex="-1"
+                                  MaxDropDownHeight="220"
+                                  SelectionChanged="OnCaseSelectionChanged">
+                            <ComboBox.PlaceholderText>Выберите корпус</ComboBox.PlaceholderText>
+                        </ComboBox>
+
+                        <TextBlock Text="Унифицированный ГЧ" FontWeight="SemiBold"/>
+                        <ComboBox Width="300" x:Name="GchComboBox"
+                                  SelectedIndex="-1"
+                                  MaxDropDownHeight="220">
+                            <ComboBox.PlaceholderText>Выберите ГЧ</ComboBox.PlaceholderText>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+
+                <!-- Связка третий+четвёртый столбец -->
+                <Border Grid.Column="1"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="8"
+                        Margin="8"
+                        Background="{StaticResource BackgroundBrush}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Описание внешнего вида" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="DescCodeComboBox"
+                                  SelectedIndex="-1"
+                                  MaxDropDownHeight="220">
+                            <ComboBox.PlaceholderText>Код описания</ComboBox.PlaceholderText>
+                        </ComboBox>
+
+                        <TextBlock Text="Название описания" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="DescNameComboBox"
+                                  SelectedIndex="-1"
+                                  MaxDropDownHeight="220">
+                            <ComboBox.PlaceholderText>Название описания</ComboBox.PlaceholderText>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,24,0,0">
+                <Button Content="Добавить"
+                        Click="OnAddClick"
+                        Classes="AdminPrimary"
+                        Margin="8,0"/>
+                <Button Content="Отмена"
+                        Click="OnCancelClick"
+                        Classes="AdminSecondary"
+                        Margin="8,0"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
+

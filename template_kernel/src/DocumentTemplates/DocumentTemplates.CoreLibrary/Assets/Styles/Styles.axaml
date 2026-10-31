@@ -1,0 +1,740 @@
+    <Styles xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+        <Styles.Resources>
+            <!-- Базовые цвета -->
+            <Color x:Key="BackgroundColor">#0B1220</Color>
+            <Color x:Key="PanelBackgroundColor">#0F172A</Color>
+            <Color x:Key="BorderColor">#243244</Color>
+
+            <!-- Акценты (единый синий стиль) -->
+            <Color x:Key="AccentColor">#2F6FE4</Color>
+            <Color x:Key="AccentDarkColor">#1F56BE</Color>
+            <Color x:Key="AccentHoverColor">#4A82EA</Color>
+
+            <!-- Голубые акценты (контент) -->
+            <Color x:Key="BlueAccentColor">#2F6FE4</Color>
+            <Color x:Key="BlueAccentDarkColor">#1F56BE</Color>
+            <Color x:Key="BlueAccentHoverColor">#4A82EA</Color>
+
+            <!-- Текстовые цвета -->
+            <Color x:Key="ForegroundColor">#E5E7EB</Color>
+            <Color x:Key="SecondaryTextColor">#9CA3AF</Color>
+
+            <!-- Кисти -->
+            <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
+            <SolidColorBrush x:Key="PanelBackgroundBrush" Color="{DynamicResource PanelBackgroundColor}" />
+            <SolidColorBrush x:Key="BorderBrush" Color="{DynamicResource BorderColor}" />
+
+            <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
+            <SolidColorBrush x:Key="AccentDarkBrush" Color="{DynamicResource AccentDarkColor}" />
+            <SolidColorBrush x:Key="AccentHoverBrush" Color="{DynamicResource AccentHoverColor}" />
+
+            <SolidColorBrush x:Key="BlueAccentBrush" Color="{DynamicResource BlueAccentColor}" />
+            <SolidColorBrush x:Key="BlueAccentDarkBrush" Color="{DynamicResource BlueAccentDarkColor}" />
+            <SolidColorBrush x:Key="BlueAccentHoverBrush" Color="{DynamicResource BlueAccentHoverColor}" />
+
+            <SolidColorBrush x:Key="ForegroundBrush" Color="{DynamicResource ForegroundColor}" />
+            <SolidColorBrush x:Key="SecondaryTextBrush" Color="{DynamicResource SecondaryTextColor}" />
+        </Styles.Resources>
+
+        <!-- === ОСНОВНЫЕ ЭЛЕМЕНТЫ === -->
+        <Style Selector="Window">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <Style Selector="TextBlock.h1.Main">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.h3">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <Style Selector="TextBlock.h3.Main">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.body">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.body.Main">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.button">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- === КНОПКИ МЕНЮ — СИНИЕ === -->
+        <Style Selector="Button.MenuButton">
+            <Setter Property="Background" Value="{StaticResource BlueAccentHoverBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="16,10" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="MinHeight" Value="44" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <Style Selector="Button.MenuButton:disabled">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="Button.MenuButton:disabled /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="Button.MenuButton:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.MenuButton:focus /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+        </Style>
+
+        <Style Selector="Button.MenuButton:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- Маленькая иконка переключения темы (внизу справа) -->
+        <Style Selector="Button.ThemeIconToggle">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="MinHeight" Value="34" />
+            <Setter Property="MinWidth" Value="34" />
+        </Style>
+
+        <Style Selector="Button.ThemeIconToggle:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+        </Style>
+
+        <Style Selector="Button.ThemeIconToggle:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Opacity" Value="0.9" />
+        </Style>
+
+        <!-- === ADMINLTE sidebar (темная вертикальная панель) === -->
+        <Style Selector="Button.MenuButton.SidebarMenuButton">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="MinHeight" Value="44" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <!-- На всякий случай подсвечиваем саму кнопку.
+             Иногда установка через /template/ ContentPresenter не даёт ожидаемого визуального эффекта. -->
+        <Style Selector="Button.MenuButton.SidebarMenuButton:pointerover">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.MenuButton.SidebarMenuButton:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- Текст внутри кнопки может продолжать брать дефолтный стиль TextBlock.
+             Поэтому фиксируем цвет именно у TextBlock на hover. -->
+        <Style Selector="Button.MenuButton.SidebarMenuButton:pointerover TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.MenuButton:pointerover TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.MenuButton.SidebarMenuButton:focus /template/ ContentPresenter">
+            <!-- Фокус не должен "перекрашивать" фон в синюю заливку -->
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Button.MenuButton.SidebarMenuButton:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <!-- === ADMINLTE sidebar (ToggleButton variant) === -->
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="MinHeight" Value="44" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:pointerover">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:pointerover TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:focus /template/ ContentPresenter">
+            <!-- Фокус не должен "перекрашивать" фон в синюю заливку -->
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <!-- Active (selected) sidebar item -->
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:checked">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:checked /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:checked TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:checked:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ToggleButton.MenuButton.SidebarMenuButton:checked:focus /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- === КНОПКИ КОНТЕНТА — ГОЛУБЫЕ === -->
+        <Style Selector="Button:not(.MenuButton)">
+            <Setter Property="Background" Value="{StaticResource BlueAccentHoverBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="16,10" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):disabled">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):disabled /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):pointerover">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):focus /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Opacity" Value="0.9" />
+        </Style>
+
+        <Style Selector="Button:not(.MenuButton):pressed">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- === TEXTBOX === -->
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style Selector="TextBox:pointerover">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBox:pointerover /template/ Border">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentHoverBrush}" />
+        </Style>
+
+        <Style Selector="TextBox:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBox:focus">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBox:focus /template/ Border">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+        </Style>
+
+        <Style Selector="TextBox:focus /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBox /template/ TextBlock#PART_Watermark">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="FontStyle" Value="Italic" />
+        </Style>
+
+        <!-- === LISTBOX ITEM — ВЫДЕЛЕНИЕ СИНИМ (ТОНКАЯ ТЕНЬ) === -->
+        <Style Selector="ListBox">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style Selector="ListBoxItem">
+            <Setter Property="Padding" Value="4,2" />
+            <Setter Property="Margin" Value="2,1" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="6" />
+        </Style>
+
+        <Style Selector="ListBoxItem:pointerover">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ListBoxItem:pointerover TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="ListBoxItem:selected">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="CornerRadius" Value="6" />
+        </Style>
+
+        <Style Selector="ListBoxItem:selected TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ListBoxItem:selected:pointerover">
+            <Setter Property="Background" Value="{StaticResource BlueAccentHoverBrush}" />
+        </Style>
+
+        <Style Selector="ListBoxItem:selected:pointerover TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- === COMBOBOX === -->
+        <Style Selector="ComboBox">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ Border">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentHoverBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:focus">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:focus /template/ Border">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:focus /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox /template/ TextBlock#PlaceholderTextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <!-- Текст в ComboBox (выбранное значение) -->
+        <Style Selector="ComboBox /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox /template/ ContentPresenter > TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <!-- ComboBox Popup -->
+        <Style Selector="ComboBox /template/ Popup > Border">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Padding" Value="4" />
+            <!-- Make dropdown width match the ComboBox control width -->
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <!-- Use TemplatedParent to avoid relying on $parent (can be null during updates). -->
+            <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Setter Property="MinWidth" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Setter Property="MaxWidth" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" />
+        </Style>
+
+        <!-- ComboBoxItem -->
+        <Style Selector="ComboBoxItem">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="Padding" Value="10,8" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+
+        <Style Selector="ComboBoxItem TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:pointerover">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:pointerover TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:selected">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:selected TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:selected:pointerover">
+            <Setter Property="Background" Value="{StaticResource BlueAccentHoverBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:selected:pointerover TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+        </Style>
+
+        <Style Selector="ComboBoxItem /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <!-- === ПЕРЕОПРЕДЕЛЕНИЕ СТИЛЕЙ FLUENT THEME === -->
+        <!-- Убираем темный фон при наведении для всех элементов ввода -->
+        <Style Selector="TextBox:pointerover /template/ Panel">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ Panel">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ ToggleButton">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <!-- === DIALOG UI === -->
+        <Style Selector="Window.DialogWindow">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="Border.DialogCard">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Padding" Value="24" />
+        </Style>
+
+        <Style Selector="TextBlock.DialogTitle">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.DialogSubtitle">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+        </Style>
+
+        <Style Selector="Button.PrimaryAction">
+            <Setter Property="MinWidth" Value="150" />
+        </Style>
+
+        <Style Selector="Button.SecondaryAction">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="MinWidth" Value="150" />
+        </Style>
+
+        <Style Selector="Button.SecondaryAction:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="Button.SecondaryAction:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="Opacity" Value="0.92" />
+        </Style>
+
+        <!-- === ADMIN-LTE LIKE DIALOG === -->
+        <Style Selector="Window.AdminDialog">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <!-- === ADMINLTE CONTENT (shared cards) === -->
+        <Style Selector="UserControl.AdminContent">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="Border.AdminListItem">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+
+        <Style Selector="Border.AdminSubCard">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+
+        <Style Selector="Panel.AdminSeparator">
+            <Setter Property="Background" Value="{StaticResource BorderBrush}" />
+        </Style>
+
+        <Style Selector="Border.AdminFormCard">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="16" />
+        </Style>
+
+        <Style Selector="Border.AdminCard">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+
+        <Style Selector="Border.AdminCardHeader">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="CornerRadius" Value="10,10,0,0" />
+        </Style>
+
+        <Style Selector="TextBlock.AdminCardTitle">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.AdminCardHint">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.AdminFormLabel">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Border.AdminFormSection">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="14" />
+        </Style>
+
+        <Style Selector="Border.AdminFooter">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1,1,1,0" />
+            <Setter Property="Padding" Value="14,10" />
+            <Setter Property="CornerRadius" Value="0,0,10,10" />
+        </Style>
+
+        <Style Selector="Button.AdminPrimary">
+            <Setter Property="Background" Value="#2F6FE4" />
+            <Setter Property="BorderBrush" Value="#1F56BE" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="20,10" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="MinWidth" Value="140" />
+        </Style>
+
+        <Style Selector="Button.AdminPrimary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#4A82EA" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.AdminPrimary:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="#1F56BE" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.AdminSecondary">
+            <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="20,10" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="MinWidth" Value="140" />
+        </Style>
+
+        <Style Selector="Button.AdminSecondary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.AdminSecondary:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- === Overview tiles (AdminLTE-like) === -->
+        <Style Selector="Button.AdminTile">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="MinHeight" Value="92" />
+        </Style>
+
+        <Style Selector="Button.AdminTile:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- Fix: на hover фон синий, но TextBlock может сохранить свой Foreground из других стилей -->
+        <Style Selector="Button.AdminTile:pointerover TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.AdminTile:pointerover TextBlock.AdminTileHint">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.AdminTile:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource BlueAccentDarkBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="TextBlock.AdminTileHint">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
+            <Setter Property="Margin" Value="0,6,0,0" />
+        </Style>
+
+        <!-- Override ниже базового стиля, чтобы точно победить порядок объявления -->
+        <Style Selector="Button.AdminTile:pointerover TextBlock.AdminTileHint">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="Button.AdminTile:pressed TextBlock.AdminTileHint">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+    </Styles>

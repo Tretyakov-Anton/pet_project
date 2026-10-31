@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Ensure NuGet dependencies are copied to bin for class library -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocX" Version="3.0.0" />
+    <PackageReference Include="System.IO.Packaging" Version="8.0.0" />
+    <ProjectReference Include="..\DocumentTemplates.CoreLibrary\DocumentTemplates.CoreLibrary.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\FileSettingsView.axaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainView.axaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AddDeviceDialog.axaml.cs">
+      <DependentUpon>AddDeviceDialog.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AddGchDialog.axaml.cs">
+      <DependentUpon>AddGchDialog.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="devices.json" />
+    <Content Include="Resources\Devices\**\*.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Devices\devices.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Devices\GCh_D2_List.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="PostBuildCopyToTemplates" AfterTargets="Build">
+    <PropertyGroup>
+      <!-- Куда хост (ядро) смотрит на старте: AppContext.BaseDirectory/Templates -->
+      <TemplatesDir>$(MSBuildProjectDirectory)\..\DocumentTemplates\bin\$(Configuration)\$(TargetFramework)\Templates\</TemplatesDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <PluginFiles Include="$(TargetDir)$(AssemblyName).dll" />
+      <PluginFiles Include="$(TargetDir)$(AssemblyName).deps.json" Condition="Exists('$(TargetDir)$(AssemblyName).deps.json')" />
+      <PluginFiles Include="$(TargetDir)$(AssemblyName).runtimeconfig.json" Condition="Exists('$(TargetDir)$(AssemblyName).runtimeconfig.json')" />
+      <PluginFiles Include="$(TargetDir)devices.json" Condition="Exists('$(TargetDir)devices.json')" />
+      <PluginFiles Include="$(TargetDir)GCh_D2_List.json" Condition="Exists('$(TargetDir)GCh_D2_List.json')" />
+      <PluginFiles Include="$(TargetDir)Resources\Devices\**\*.xlsx" />
+      <PluginFiles Include="$(TargetDir)Resources\Devices\devices.json" Condition="Exists('$(TargetDir)Resources\Devices\devices.json')" />
+      <PluginFiles Include="$(TargetDir)Resources\Devices\GCh_D2_List.json" Condition="Exists('$(TargetDir)Resources\Devices\GCh_D2_List.json')" />
+      <!-- Copy DocX dependencies into Templates folder so the plugin can resolve them when loaded via Assembly.LoadFrom -->
+      <PluginFiles Include="$(TargetDir)Xceed*.dll" />
+      <PluginFiles Include="$(TargetDir)SixLabors*.dll" Condition="Exists('$(TargetDir)SixLabors*.dll')" />
+      <PluginFiles Include="$(TargetDir)System.Drawing.Common.dll" Condition="Exists('$(TargetDir)System.Drawing.Common.dll')" />
+      <PluginFiles Include="$(TargetDir)System.IO.Packaging.dll" Condition="Exists('$(TargetDir)System.IO.Packaging.dll')" />
+    </ItemGroup>
+    <MakeDir Directories="$(TemplatesDir)" />
+    <!-- Всегда перезаписываем, чтобы в Templates лежала свежая сборка -->
+    <Copy SourceFiles="@(PluginFiles)" DestinationFiles="@(PluginFiles -> '$(TemplatesDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+
+</Project>

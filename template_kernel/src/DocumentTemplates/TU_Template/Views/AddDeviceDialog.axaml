@@ -1,0 +1,100 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="TU_Template.Views.AddDeviceDialog"
+        Classes="AdminDialog"
+        Title="Добавить прибор"
+        Width="780" Height="420"
+        MinWidth="780" MinHeight="420"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False">
+    
+    <Border Classes="AdminCard"
+            Margin="16" 
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+        <Grid RowDefinitions="Auto * Auto">
+            <Border Grid.Row="0" Classes="AdminCardHeader">
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="24"
+                            Height="24"
+                            Background="#3C8DBC"
+                            CornerRadius="4"
+                            Margin="0,0,10,0"/>
+                    <StackPanel Grid.Column="1" Spacing="2">
+                        <TextBlock Text="Добавить прибор" Classes="AdminCardTitle"/>
+                        <TextBlock Text="Заполните поля ниже и нажмите «Добавить»" Classes="AdminCardHint"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            
+            <!-- Поля выбора -->
+            <Grid Grid.Row="1"
+                  Margin="16"
+                  ColumnDefinitions="*,20,*"
+                  VerticalAlignment="Center">
+                <Border Grid.Column="0" Classes="AdminFormSection">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Наименование оборудования" Classes="AdminFormLabel"/>
+                        <ComboBox x:Name="DeviceNameComboBox" 
+                                  Height="38"
+                                  SelectedIndex="-1"
+                                  MaxDropDownHeight="220"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  SelectionChanged="DeviceNameComboBox_OnSelectionChanged">
+                            <ComboBox.PlaceholderText>Например: ADSL/SDH модем</ComboBox.PlaceholderText>
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" 
+                                              TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Text="Выберите из доступного списка типов оборудования"
+                                   Classes="AdminCardHint"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="2" Classes="AdminFormSection">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Модель оборудования" Classes="AdminFormLabel"/>
+                        <ComboBox x:Name="DeviceTypeComboBox" 
+                                  Height="38"
+                                  SelectedIndex="-1"
+                                  MaxDropDownHeight="220"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left">
+                            <ComboBox.PlaceholderText>Например: Cisco 88xx</ComboBox.PlaceholderText>
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" 
+                                              TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Text="Список моделей зависит от выбранного наименования"
+                                   Classes="AdminCardHint"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            
+            <!-- Кнопки -->
+            <Border Grid.Row="2" Classes="AdminFooter">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Spacing="10">
+                    <Button Content="Отмена" 
+                            Classes="AdminSecondary"
+                            Click="OnCancelClick"/>
+                    <Button Content="Добавить" 
+                            Classes="AdminPrimary"
+                            Click="OnAddClick"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
+

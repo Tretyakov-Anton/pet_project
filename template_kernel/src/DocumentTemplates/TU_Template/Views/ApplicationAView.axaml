@@ -1,0 +1,194 @@
+    <UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             xmlns:converters="clr-namespace:TU_Template.Converters"
+             mc:Ignorable="d"
+             x:Class="TU_Template.Views.ApplicationAView"
+             x:DataType="vm:ApplicationAViewModel"
+             Classes="AdminContent">
+
+    <UserControl.Resources>
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+    </UserControl.Resources>
+
+        <Grid RowDefinitions="auto auto * auto">
+        <!-- Поиск -->
+        <Border Grid.Row="0" 
+                Background="{StaticResource PanelBackgroundBrush}"
+                CornerRadius="10"
+                Padding="15"
+                BorderThickness="1"
+                BorderBrush="{StaticResource BorderBrush}"
+                Margin="0 0 0 15">
+            <Grid ColumnDefinitions="auto,*" RowDefinitions="auto,auto">
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="🔍 Поиск терминов"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"
+                           Margin="0,0,15,0" />
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ColumnDefinitions="*,auto">
+                    <TextBox Grid.Column="0"
+                             Text="{Binding SearchText}"
+                             Watermark="Введите название термина, буквенное обозначение или категорию..."
+                             CornerRadius="6"
+                             Padding="8"
+                             Background="{StaticResource BackgroundBrush}"
+                             BorderThickness="1"
+                             BorderBrush="{StaticResource BorderBrush}"
+                             Margin="0,0,8,0" />
+                    <Button Grid.Column="1"
+                            Content="✕"
+                            Command="{Binding ClearSearchCommand}"
+                            Width="32"
+                            Height="32"
+                            CornerRadius="6"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            ToolTip.Tip="Очистить поиск" />
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- Индикатор результатов поиска -->
+        <Border Grid.Row="1" 
+                Background="{StaticResource PanelBackgroundBrush}"
+                CornerRadius="6"
+                Padding="8"
+                BorderThickness="1"
+                BorderBrush="{StaticResource BorderBrush}"
+                Margin="0 0 0 8">
+            <TextBlock Text="{Binding FilteredTermDefinitions.Count, StringFormat='Найдено терминов: {0}'}"
+                       FontSize="12"
+                       FontWeight="SemiBold"
+                       Foreground="{StaticResource SecondaryTextBrush}" />
+        </Border>
+
+        <ScrollViewer Grid.Row="2" Margin="2 0" Padding="0 0 8 0">
+            <StackPanel>
+                <!-- Сообщение о том, что ничего не найдено -->
+                <Border Background="{StaticResource PanelBackgroundBrush}"
+                        CornerRadius="8"
+                        Padding="20"
+                        Margin="0 0 0 12"
+                        IsVisible="{Binding FilteredTermDefinitions.Count, Converter={StaticResource InverseBooleanConverter}}">
+                    <StackPanel>
+                        <TextBlock Text="❌ По вашему запросу ничего не найдено"
+                                   FontSize="14"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource SecondaryTextBrush}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="Попробуйте изменить поисковый запрос или очистить фильтр"
+                                   FontSize="12"
+                                   Foreground="{StaticResource SecondaryTextBrush}"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,4,0,0" />
+                    </StackPanel>
+                </Border>
+
+                <ItemsControl ItemsSource="{Binding FilteredTermDefinitions}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Classes="AdminListItem"
+                                    Padding="12" Margin="0 0 0 12">
+                                <Grid ColumnDefinitions="200,*" RowDefinitions="auto auto auto auto auto">
+                                    <!-- Заголовок термина -->
+                                    <TextBlock Grid.Row="0" Grid.Column="0"
+                                               Text="Термин по ТУ:" 
+                                               FontSize="13" 
+                                               FontWeight="SemiBold" 
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,8,0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1"
+                                             Text="{Binding Term}"
+                                             VerticalAlignment="Center"/>
+
+                                    <!-- Буквенное обозначение -->
+                                    <TextBlock Grid.Row="1" Grid.Column="0"
+                                               Text="Буквенное обозначение:" 
+                                               FontSize="13" 
+                                               FontWeight="SemiBold" 
+                                               VerticalAlignment="Center"
+                                               Margin="0,8,8,0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1"
+                                             Text="{Binding Symbol}"
+                                             Width="150"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Center"
+                                             Margin="0,8,0,0"/>
+
+                                    <!-- Категория -->
+                                    <TextBlock Grid.Row="2" Grid.Column="0"
+                                               Text="Категория:" 
+                                               FontSize="13" 
+                                               FontWeight="SemiBold" 
+                                               VerticalAlignment="Center"
+                                               Margin="0,8,8,0"/>
+                                    <ComboBox Grid.Row="2" Grid.Column="1"
+                                              ItemsSource="{Binding $parent[ItemsControl].DataContext.AvailableCategories}"
+                                              SelectedItem="{Binding Category}"
+                                              Width="200"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Center"
+                                              Margin="0,8,0,0"/>
+
+                                    <!-- Определение -->
+                                    <TextBlock Grid.Row="3" Grid.Column="0"
+                                               Text="Определение:" 
+                                               FontSize="13" 
+                                               FontWeight="SemiBold"
+                                               VerticalAlignment="Top"
+                                               Margin="0,8,8,0"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1"
+                                             Text="{Binding Definition}"
+                                             TextWrapping="Wrap"
+                                             AcceptsReturn="True"
+                                             Height="100"
+                                             VerticalAlignment="Top"
+                                             Margin="0,8,0,0"/>
+
+                                    <!-- Кнопки управления -->
+                                    <StackPanel Grid.Row="4" Grid.Column="1"
+                                                Orientation="Horizontal" 
+                                                Spacing="8"
+                                                HorizontalAlignment="Left"
+                                                Margin="0,8,0,0">
+                                        <Button Content="Удалить термин"
+                                                Command="{Binding $parent[ItemsControl].DataContext.RemoveTermCommand}"
+                                                CommandParameter="{Binding}"
+                                                MinWidth="120"
+                                                HorizontalContentAlignment="Center" />
+                                        
+                                        <Button Content="Добавить такой же термин"
+                                                Command="{Binding $parent[ItemsControl].DataContext.AddTermCommand}"
+                                                MinWidth="120"
+                                                HorizontalContentAlignment="Center" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Кнопки управления -->
+        <StackPanel Grid.Row="3" 
+                    Orientation="Horizontal" 
+                    Spacing="12" 
+                    Margin="2 8 2 0"
+                    HorizontalAlignment="Left">
+            <Button Content="Добавить термин"
+                    Command="{Binding AddTermCommand}"
+                    MinWidth="140"
+                    HorizontalContentAlignment="Center" />
+            
+            <Button Content="Добавить категорию"
+                    Command="{Binding AddCategoryCommand}"
+                    MinWidth="140"
+                    HorizontalContentAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</UserControl>

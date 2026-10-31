@@ -1,0 +1,14 @@
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\bin\Debug\net8.0\DocumentTemplates.CoreLibrary.deps.json
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\bin\Debug\net8.0\DocumentTemplates.CoreLibrary.dll
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\bin\Debug\net8.0\DocumentTemplates.CoreLibrary.pdb
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\DocumentTemplates.CoreLibrary.csproj.AssemblyReference.cache
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\Avalonia\resources
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\DocumentTemplates.CoreLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\DocumentTemplates.CoreLibrary.AssemblyInfoInputs.cache
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\DocumentTemplates.CoreLibrary.AssemblyInfo.cs
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\DocumentTemplates.CoreLibrary.csproj.CoreCompileInputs.cache
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\Avalonia\DocumentTemplates.CoreLibrary.dll
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\Avalonia\DocumentTemplates.CoreLibrary.pdb
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\refint\Avalonia\DocumentTemplates.CoreLibrary.dll
+F:\Работа\word-templates-main\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net8.0\ref\DocumentTemplates.CoreLibrary.dll

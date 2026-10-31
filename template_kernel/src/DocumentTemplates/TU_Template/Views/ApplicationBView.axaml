@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             x:Class="TU_Template.Views.ApplicationBView"
+             x:DataType="vm:ApplicationBViewModel"
+             Classes="AdminContent">
+    <Grid>
+        <Border Classes="AdminFormCard"
+                Padding="20"
+                Margin="8">
+            <TextBlock Text="Раздел «Приложение B» в разработке"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="16"/>
+        </Border>
+    </Grid>
+</UserControl>
+

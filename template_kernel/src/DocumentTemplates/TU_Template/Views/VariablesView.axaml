@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             x:Class="TU_Template.Views.VariablesView"
+             x:Name="Root"
+             x:DataType="vm:VariablesViewModel"
+             Classes="AdminContent">
+
+    <Grid RowDefinitions="* auto">
+        <ScrollViewer Margin="2 0" Padding="0 0 8 0">
+            <StackPanel>
+                <Grid IsVisible="{Binding Path=TemplateData.Variables.Count}"
+                      ColumnDefinitions="* 2* 100"
+                      Margin="0 0 0 0">
+                    <TextBlock Grid.Column="0" TextAlignment="Center" Text="Имя переменной" />
+                    <TextBlock Grid.Column="1" TextAlignment="Center" Text="Значение" />
+                </Grid>
+
+                <ItemsControl ItemsSource="{Binding Path=TemplateData.Variables}" Margin="0 4 0 0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="* 2* 100" Margin="0 0 0 4">
+                                <TextBox Grid.Column="0"
+                                         Text="{Binding Path=Name}"
+                                         VerticalAlignment="Center"
+                                         Margin="0 0 4 0"
+                                         Watermark="имя (без ${})" />
+                                <TextBox Grid.Column="1"
+                                         Text="{Binding Path=Value}"
+                                         VerticalAlignment="Center"
+                                         Margin="0 0 4 0"
+                                         Watermark="значение" />
+                                <Button Grid.Column="2"
+                                        Padding="16 0"
+                                        Command="{Binding DataContext.RemoveCommand, ElementName=Root}"
+                                        CommandParameter="{Binding}">
+                                    Удалить переменную
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button Grid.Row="1"
+                Margin="2 8 2 0"
+                FontSize="16"
+                Padding="0 8"
+                Command="{Binding Path=AddCommand}"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center">
+            Добавить переменную
+        </Button>
+    </Grid>
+</UserControl>
+

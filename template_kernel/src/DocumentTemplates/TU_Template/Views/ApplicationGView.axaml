@@ -1,0 +1,71 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             xmlns:converters="clr-namespace:TU_Template.Converters"
+             mc:Ignorable="d"
+             x:Class="TU_Template.Views.ApplicationGView"
+             x:DataType="vm:ApplicationGViewModel"
+             Classes="AdminContent">
+
+    <UserControl.Resources>
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+    </UserControl.Resources>
+
+    <Grid RowDefinitions="* Auto">
+        <!-- Список добавленных приборов -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding DeviceGroups}" Margin="8">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type vm:DeviceGroupViewModel}">
+                        <Border Classes="AdminListItem" Margin="0,0,0,8" Padding="8">
+                            <Grid ColumnDefinitions="* * Auto Auto">
+                                <!-- Наименование прибора -->
+                                <Border Grid.Column="0" Classes="AdminSubCard" Padding="12,8" Margin="0,0,8,0">
+                                    <TextBox Text="{Binding Name}" 
+                                             IsReadOnly="{Binding IsNameReadOnly}"
+                                             Watermark="Наименование прибора"
+                                             BorderThickness="0"
+                                             Background="Transparent"/>
+                                </Border>
+                                <!-- Тип прибора -->
+                                <Border Grid.Column="1" Classes="AdminSubCard" Padding="12,8" Margin="0,0,8,0">
+                                    <TextBox Text="{Binding TypeName}" 
+                                             Watermark="Тип прибора"
+                                             BorderThickness="0"
+                                             Background="Transparent"/>
+                                </Border>
+                                
+                                <!-- Кнопка Изм. -->
+                                <Button Grid.Column="2" Content="Изменить" 
+                                        Command="{Binding $parent[ItemsControl].((vm:ApplicationGViewModel)DataContext).EditDeviceCommand}"
+                                        CommandParameter="{Binding}"
+                                        Margin="0,0,4,0" Padding="12,8"
+                                        VerticalAlignment="Stretch"/>
+                                
+                                <!-- Кнопка Удал. -->
+                                <Button Grid.Column="3" Content="Удалить" 
+                                        Command="{Binding $parent[ItemsControl].((vm:ApplicationGViewModel)DataContext).RemoveDeviceCommand}"
+                                        CommandParameter="{Binding}"
+                                        Padding="12,8"
+                                        VerticalAlignment="Stretch"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!-- Кнопка "Добавить прибор" -->
+        <Button Grid.Row="1"
+                Margin="8"
+                FontSize="16"
+                Padding="0,12"
+                Command="{Binding ShowAddDeviceDialogCommand}"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center">
+            Добавить прибор из справочника
+        </Button>
+    </Grid>
+</UserControl>

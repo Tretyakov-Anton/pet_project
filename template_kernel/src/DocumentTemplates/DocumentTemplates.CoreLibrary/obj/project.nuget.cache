@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "dgSpecHash": "ixrNzX+C69w=",
+  "success": true,
+  "projectFilePath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\masla\\.nuget\\packages\\avalonia\\11.1.0\\avalonia.11.1.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\avalonia.buildservices\\0.0.29\\avalonia.buildservices.0.0.29.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\avalonia.reactiveui\\11.1.0\\avalonia.reactiveui.11.1.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\avalonia.remote.protocol\\11.1.0\\avalonia.remote.protocol.11.1.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\docx\\3.0.0\\docx.3.0.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\dynamicdata\\7.9.5\\dynamicdata.7.9.5.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\microcom.runtime\\0.11.0\\microcom.runtime.0.11.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\reactiveui\\18.3.1\\reactiveui.18.3.1.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\splat\\14.4.1\\splat.14.4.1.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\system.io.packaging\\8.0.0\\system.io.packaging.8.0.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.30\\microsoft.netcore.app.runtime.win-x64.8.0.30.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.30\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.30.nupkg.sha512",
+    "C:\\Users\\masla\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.30\\microsoft.aspnetcore.app.runtime.win-x64.8.0.30.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "У пакета \"System.IO.Packaging\" 8.0.0 есть известная уязвимость https://github.com/advisories/GHSA-f32c-w444-8ppv (уровень серьезности: высокий уровень)",
+      "projectPath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+      "libraryId": "System.IO.Packaging",
+      "targetGraphs": [
+        "net8.0",
+        "net8.0/win-x64"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "У пакета \"System.IO.Packaging\" 8.0.0 есть известная уязвимость https://github.com/advisories/GHSA-qj66-m88j-hmgj (уровень серьезности: высокий уровень)",
+      "projectPath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+      "libraryId": "System.IO.Packaging",
+      "targetGraphs": [
+        "net8.0",
+        "net8.0/win-x64"
+      ]
+    }
+  ]
+}

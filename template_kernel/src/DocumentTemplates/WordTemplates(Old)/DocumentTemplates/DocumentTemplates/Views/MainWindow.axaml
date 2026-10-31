@@ -1,0 +1,88 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:DocumentTemplates.ViewModels"
+    xmlns:core="clr-namespace:DocumentTemplates.CoreLibrary;assembly=DocumentTemplates.CoreLibrary"
+    Width="800"
+    Height="500"
+    x:Class="DocumentTemplates.Views.MainWindow"
+    Title="Шаблоны документов"
+    Icon="avares://DocumentTemplates.CoreLibrary/Assets/Icons/icvao.ico"
+    WindowStartupLocation="CenterScreen"
+    x:DataType="vm:MainWindowViewModel"> <!-- 👈 КЛЮЧЕВОЙ ШАГ: указываем тип DataContext -->
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <DockPanel Margin="20">
+
+        <!-- Заголовок -->
+        <TextBlock DockPanel.Dock="Top"
+                   Text="Выберите шаблон документа"
+                   Classes="h1 Main"
+                   Margin="0,0,0,20" />
+
+        <!-- Кнопка действия — КРАСНАЯ (используем Classes) -->
+        <Button DockPanel.Dock="Bottom"
+                Command="{Binding OpenTemplateCommand}"
+                IsEnabled="{Binding CanOpenTemplate}"
+                HorizontalAlignment="Stretch"
+                Height="44"
+                Margin="0,20,0,0"
+                Classes="MenuButton"> <!-- 👈 ИСПРАВЛЕНО: Class → Classes -->
+            <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                <TextBlock Text="Открыть шаблон"
+                           Classes="button"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <!-- Поиск -->
+        <Border DockPanel.Dock="Top"
+                Background="{StaticResource PanelBackgroundBrush}"
+                CornerRadius="10"
+                Padding="10"
+                BorderThickness="1"
+                BorderBrush="{StaticResource BorderBrush}">
+            <StackPanel Spacing="10">
+                <TextBlock Text="Поиск"
+                           Classes="h3 Main"
+                           Margin="0,0,0,5" />
+                <TextBox
+                    Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                    Watermark="Введите название..."
+                    CornerRadius="6"
+                    Padding="6"
+                    Background="{StaticResource BackgroundBrush}"
+                    BorderThickness="0"
+                    VerticalContentAlignment="Center" />
+            </StackPanel>
+        </Border>
+
+        <!-- Список шаблонов -->
+        <Border CornerRadius="8" Padding="0">
+            <ListBox ItemsSource="{Binding Templates}"
+                     SelectedItem="{Binding SelectedTemplate}">
+
+                <!-- Карточка элемента -->
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="core:IDocumentTemplate"> <!-- 👈 Указан тип данных -->
+                        <Border Padding="15,12"
+                                CornerRadius="6"
+                                Background="{Binding $parent[ListBoxItem].Background}">
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="{Binding Metadata.Name}"
+                                           Classes="h3 Main"/>
+                                <TextBlock Text="{Binding Metadata.Description}"
+                                           Classes="body Main"
+                                           MaxHeight="40"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+        </Border>
+    </DockPanel>
+</Window>

@@ -1,0 +1,171 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TU_Template.ViewModels"
+             xmlns:models="clr-namespace:TU_Template.Models"
+             mc:Ignorable="d"
+             x:Class="TU_Template.Views.ApplicationVView"
+             x:DataType="vm:ApplicationVViewModel"
+             Classes="AdminContent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="8" Spacing="16">
+
+            <!-- Позиции из справочника корпусов: заполняют В.1 и В.2 автоматически -->
+            <StackPanel Spacing="8">
+                <TextBlock Text="Корпуса из справочника"
+                           FontWeight="SemiBold"
+                           FontSize="15" />
+                <TextBlock Text="Шифры габаритных чертежей (В.1) и описаний внешнего вида (В.2) подставляются из выбранных позиций. Позиций может быть несколько."
+                           TextWrapping="Wrap"
+                           FontSize="12"
+                           Opacity="0.75" />
+
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Spacing="8"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type vm:GchD2ItemViewModel}">
+                            <Border Classes="AdminListItem"
+                                    Padding="8"
+                                    Margin="0,0,0,8">
+                                <Grid ColumnDefinitions="* * Auto Auto">
+                                    <!-- Название корпуса + унифицированный ГЧ -->
+                                    <Border Grid.Column="0"
+                                            Classes="AdminSubCard"
+                                            Padding="12,8"
+                                            Margin="0,0,8,0">
+                                        <StackPanel Spacing="4">
+                                            <TextBlock Text="{Binding CaseName}"
+                                                       FontWeight="SemiBold" />
+                                            <TextBlock Text="{Binding UnifiedGch}"
+                                                       FontStyle="Italic" />
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- Описание внешнего вида + название описания -->
+                                    <Border Grid.Column="1" Margin="8,0,0,0"
+                                            Classes="AdminSubCard"
+                                            Padding="12,8">
+                                        <StackPanel Spacing="4">
+                                            <TextBlock Text="{Binding DescriptionCode}" />
+                                            <TextBlock Text="{Binding DescriptionName}"
+                                                       FontStyle="Italic" />
+                                        </StackPanel>
+                                    </Border>
+
+                                    <StackPanel Margin="10,0,0,0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Button
+                                            Command="{Binding $parent[ItemsControl].DataContext.EditItemCommand}"
+                                            CommandParameter="{Binding}"
+                                            Content="Изменить"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Button
+                                            Command="{Binding $parent[ItemsControl].DataContext.RemoveItemCommand}"
+                                            CommandParameter="{Binding}"
+                                            Content="Удалить"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Button Margin="0,4,0,0"
+                        FontSize="16"
+                        Padding="0,12"
+                        Command="{Binding ShowAddDialogCommand}"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center">
+                    Добавить позицию из справочника
+                </Button>
+            </StackPanel>
+
+            <!-- В.1: шифры, добавленные вручную -->
+            <Border Classes="AdminFormCard" Padding="12">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="В.1 Габаритный чертёж — дополнительные шифры"
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="Добавляются к шифрам из справочника. Нужно, если документ не заведён в справочнике."
+                               TextWrapping="Wrap"
+                               FontSize="12"
+                               Opacity="0.75" />
+
+                    <ItemsControl ItemsSource="{Binding SectionB1}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Spacing="6"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type models:AttachedDocument}">
+                                <Grid ColumnDefinitions="* Auto">
+                                    <TextBox Grid.Column="0"
+                                             Text="{Binding DocumentCode}"
+                                             Watermark="Шифр документа" />
+                                    <Button Grid.Column="1"
+                                            Margin="8,0,0,0"
+                                            Content="Удалить"
+                                            Command="{Binding $parent[ItemsControl].DataContext.RemoveB1DocumentCommand}"
+                                            CommandParameter="{Binding}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Button Content="Добавить шифр в В.1"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Padding="0,8"
+                            Command="{Binding AddB1DocumentCommand}" />
+                </StackPanel>
+            </Border>
+
+            <!-- В.2: шифры, добавленные вручную -->
+            <Border Classes="AdminFormCard" Padding="12">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="В.2 Описание внешнего вида — дополнительные шифры"
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="Добавляются к шифрам из справочника. Нужно, если документ не заведён в справочнике."
+                               TextWrapping="Wrap"
+                               FontSize="12"
+                               Opacity="0.75" />
+
+                    <ItemsControl ItemsSource="{Binding SectionB2}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Spacing="6"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type models:AttachedDocument}">
+                                <Grid ColumnDefinitions="* Auto">
+                                    <TextBox Grid.Column="0"
+                                             Text="{Binding DocumentCode}"
+                                             Watermark="Шифр документа" />
+                                    <Button Grid.Column="1"
+                                            Margin="8,0,0,0"
+                                            Content="Удалить"
+                                            Command="{Binding $parent[ItemsControl].DataContext.RemoveB2DocumentCommand}"
+                                            CommandParameter="{Binding}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Button Content="Добавить шифр в В.2"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Padding="0,8"
+                            Command="{Binding AddB2DocumentCommand}" />
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

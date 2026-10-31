@@ -1,0 +1,131 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:TU_Template.ViewModels"
+             xmlns:views="clr-namespace:TU_Template.Views"
+             xmlns:converters="clr-namespace:TU_Template.Converters"
+             mc:Ignorable="d"
+             x:Class="TU_Template.Views.MainView"
+             x:DataType="viewmodels:MainViewModel"
+             d:DesignWidth="1000"
+             d:DesignHeight="600">
+
+    <UserControl.DataTemplates>
+        <DataTemplate DataType="{x:Type viewmodels:TemplatesOverviewViewModel}">
+            <views:TemplatesOverviewView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:FileSettingsViewModel}">
+            <views:FileSettingsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ElementsViewModel}">
+            <views:ElementsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:GroupsViewModel}">
+            <views:GroupsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ApplicationAViewModel}">
+            <views:ApplicationAView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ApplicationGViewModel}">
+            <views:ApplicationGView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ApplicationBViewModel}">
+            <views:ApplicationBView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ApplicationVViewModel}">
+            <views:ApplicationVView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:VariablesViewModel}">
+            <views:VariablesView />
+        </DataTemplate>
+    </UserControl.DataTemplates>
+
+    <UserControl.Resources>
+        <converters:MenuKeyToIsCheckedConverter x:Key="MenuKeyToIsCheckedConverter" />
+    </UserControl.Resources>
+
+    <Grid ColumnDefinitions="240,*" RowDefinitions="*" Background="{StaticResource PanelBackgroundBrush}">
+        <!-- Вертикальное меню — все кнопки теперь стилизуются через Classes -->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Background="{StaticResource PanelBackgroundBrush}" Margin="8" Spacing="10" Width="240">
+                <ToggleButton Content="Проект и документ"
+                               Command="{Binding ShowFileSettingsCommand}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=FileSettings}" />
+
+                <ToggleButton Content="Переменные шаблона"
+                               Command="{Binding ShowVariablesCommand}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=Variables}" />
+
+                <!-- Группы идут перед микросхемами: сначала задают группу, потом привязывают к ней элементы -->
+                <ToggleButton Content="Группы микросхем"
+                               Command="{Binding ShowGroupsCommand}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=Groups}" />
+
+                <ToggleButton Content="Микросхемы (элементы)"
+                               Command="{Binding ShowElementsCommand}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=Elements}" />
+
+                <ToggleButton Content="Приложение А — термины"
+                               Command="{Binding ShowApplicationA}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=ApplicationA}" />
+
+                <ToggleButton Content="Приложение Б — ссылочные документы"
+                               Command="{Binding ShowApplicationB}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=ApplicationB}" />
+
+                <ToggleButton Content="Приложение В — прилагаемые документы"
+                               Command="{Binding ShowApplicationV}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=ApplicationV}" />
+
+                <ToggleButton Content="Приложение Г — приборы"
+                               Command="{Binding ShowApplicationG}"
+                               Classes="MenuButton SidebarMenuButton"
+                               IsChecked="{Binding ActiveMenu, Mode=OneWay, Converter={StaticResource MenuKeyToIsCheckedConverter}, ConverterParameter=ApplicationG}" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1" RowDefinitions="*,Auto" Margin="10">
+            <!-- Контейнер для отображения выбранного View -->
+            <ContentControl Grid.Row="0"
+                            Content="{Binding CurrentView}"
+                            Classes="AdminContent"/>
+
+            <!-- Нижняя панель: состояние сохранения видно на любой вкладке -->
+            <Grid Grid.Row="1" ColumnDefinitions="* Auto Auto" Margin="0,10,0,0">
+                <TextBlock Grid.Column="0"
+                           Text="{Binding FileSettings.SaveStateText}"
+                           VerticalAlignment="Center"
+                           TextWrapping="NoWrap" />
+
+                <Button Grid.Column="1"
+                        Content="Сохранить проект"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Command="{Binding FileSettings.SaveCommand}"
+                        Classes="AdminSecondary"
+                        Padding="14,8"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" />
+
+                <Button Grid.Column="2"
+                        Content="Назад к выбору раздела"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Command="{Binding BackCommand}"
+                        Classes="AdminSecondary"
+                        Padding="14,8"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
