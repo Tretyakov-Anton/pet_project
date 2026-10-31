@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj": {}
+    "d:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj": {}
   },
   "projects": {
-    "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj": {
+    "d:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+        "projectUniqueName": "d:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
         "projectName": "DocumentTemplates.CoreLibrary",
-        "projectPath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
-        "packagesPath": "C:\\Users\\masla\\.nuget\\packages\\",
-        "outputPath": "F:\\Работа\\word-templates-main\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\obj\\",
+        "projectPath": "d:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\DocumentTemplates.CoreLibrary.csproj",
+        "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
+        "outputPath": "d:\\fork_avt\\pet_project\\template_kernel\\src\\DocumentTemplates\\DocumentTemplates.CoreLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\visualstudio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\masla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -55,11 +54,7 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.1.0, )"
-            },
-            "Avalonia.ReactiveUI": {
-              "target": "Package",
-              "version": "[11.1.0, )"
+              "version": "[12.1.4, )"
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
@@ -69,9 +64,9 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
-            "System.IO.Packaging": {
+            "ReactiveUI.Avalonia": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[12.1.6, )"
             }
           },
           "imports": [
@@ -87,16 +82,16 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.30, 8.0.30]"
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.29, 8.0.29]"
             },
             {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.30, 8.0.30]"
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.29, 8.0.29]"
             },
             {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.30, 8.0.30]"
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.29, 8.0.29]"
             }
           ],
           "frameworkReferences": {
@@ -104,12 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

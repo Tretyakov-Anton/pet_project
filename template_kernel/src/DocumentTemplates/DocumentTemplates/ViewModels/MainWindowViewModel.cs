@@ -5,7 +5,7 @@ using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reactive;
+using ReactiveUI.Primitives;
 
 namespace DocumentTemplates.ViewModels
 {
@@ -42,7 +42,7 @@ namespace DocumentTemplates.ViewModels
 
         public bool CanOpenTemplate => SelectedTemplate != null;
 
-        public ReactiveCommand<Unit, Unit> OpenTemplateCommand { get; }
+        public ReactiveCommand<RxVoid, RxVoid> OpenTemplateCommand { get; }
 
         public MainWindowViewModel()
         {
