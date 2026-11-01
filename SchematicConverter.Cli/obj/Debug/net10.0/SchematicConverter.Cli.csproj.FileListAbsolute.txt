@@ -1,0 +1,15 @@
+D:\fork_avt\pet_project\SchematicConverter.Cli\bin\Debug\net10.0\SchematicConverter.Cli.exe
+D:\fork_avt\pet_project\SchematicConverter.Cli\bin\Debug\net10.0\SchematicConverter.Cli.deps.json
+D:\fork_avt\pet_project\SchematicConverter.Cli\bin\Debug\net10.0\SchematicConverter.Cli.runtimeconfig.json
+D:\fork_avt\pet_project\SchematicConverter.Cli\bin\Debug\net10.0\SchematicConverter.Cli.dll
+D:\fork_avt\pet_project\SchematicConverter.Cli\bin\Debug\net10.0\SchematicConverter.Cli.pdb
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.GeneratedMSBuildEditorConfig.editorconfig
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.AssemblyInfoInputs.cache
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.AssemblyInfo.cs
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.csproj.CoreCompileInputs.cache
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.sourcelink.json
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.dll
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\refint\SchematicConverter.Cli.dll
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.pdb
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\SchematicConverter.Cli.genruntimeconfig.cache
+D:\fork_avt\pet_project\SchematicConverter.Cli\obj\Debug\net10.0\ref\SchematicConverter.Cli.dll
