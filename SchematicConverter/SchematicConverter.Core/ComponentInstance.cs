@@ -11,13 +11,22 @@ public class ComponentInstance
     //Номинал
     public string Nominal {get;}
 
-    
-    public ComponentInstance(string positionalDestignation, ComponentType type, string nominal)
+    //Приватный Список пинов
+    private List<Pin> _listPin;
+    //Публичный Список пинов
+    public IReadOnlyList<Pin> Pins {get => _listPin;}
+
+    public void AddPin(Pin pin)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(positionalDestignation);
+        
+    } 
+    
+    public ComponentInstance(string positionalDestination, ComponentType type, string nominal)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(positionalDestination);
         ArgumentException.ThrowIfNullOrWhiteSpace(nominal);
         Enum.IsDefined(type);
-        PositionalDestignation = positionalDestignation;
+        PositionalDestignation = positionalDestination;
         Type = type;
         Nominal = nominal;
     }
