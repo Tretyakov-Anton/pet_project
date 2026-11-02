@@ -1,6 +1,6 @@
 ﻿namespace SchematicConverter.Core;
 
-enum ComponentType
+public enum ComponentType
 {
     Resitor,
     Capasistance,
