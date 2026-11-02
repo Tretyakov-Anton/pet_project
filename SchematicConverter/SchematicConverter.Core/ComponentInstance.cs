@@ -12,20 +12,30 @@ public class ComponentInstance
     public string Nominal {get;}
 
     //Приватный Список пинов
-    private List<Pin> _listPin;
+    private List<Pin> _listPin = new();
     //Публичный Список пинов
     public IReadOnlyList<Pin> Pins {get => _listPin;}
 
     public void AddPin(Pin pin)
     {
-        
+        ArgumentNullException.ThrowIfNull(pin);
+        foreach (var existingPin in _listPin)
+        {
+            if (existingPin.NumberPin == pin.NumberPin)
+            {
+                throw new InvalidOperationException($"Пин с номером {pin.NumberPin} уже существует у компонента.");
+            }
+        }
     } 
     
     public ComponentInstance(string positionalDestination, ComponentType type, string nominal)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(positionalDestination);
         ArgumentException.ThrowIfNullOrWhiteSpace(nominal);
-        Enum.IsDefined(type);
+        if (!Enum.IsDefined(type))
+        {
+            throw new ArgumentOutOfRangeException(nameof(type), "Недопустимое значение типа компонента.");
+        }
         PositionalDestignation = positionalDestination;
         Type = type;
         Nominal = nominal;
