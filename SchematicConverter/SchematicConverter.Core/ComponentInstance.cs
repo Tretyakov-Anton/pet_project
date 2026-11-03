@@ -1,11 +1,8 @@
-﻿using System.ComponentModel;
-
-namespace SchematicConverter.Core;
-
+﻿namespace SchematicConverter.Core;
 public class ComponentInstance
 {
      //Позиционное обозначение
-    public string PositionalDestignation {get;}
+    public string PositionalDestination {get;}
     //Тип компонента, создается обьект перечисления ComponentType
     public ComponentType Type {get;}
     //Номинал
@@ -26,6 +23,7 @@ public class ComponentInstance
                 throw new InvalidOperationException($"Пин с номером {pin.NumberPin} уже существует у компонента.");
             }
         }
+        _listPin.Add(pin);
     } 
     
     public ComponentInstance(string positionalDestination, ComponentType type, string nominal)
@@ -36,7 +34,7 @@ public class ComponentInstance
         {
             throw new ArgumentOutOfRangeException(nameof(type), "Недопустимое значение типа компонента.");
         }
-        PositionalDestignation = positionalDestination;
+        PositionalDestination = positionalDestination;
         Type = type;
         Nominal = nominal;
     }

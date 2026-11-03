@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SchematicConverter.CLI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc7f8782a03fe49d751c507f742670ca7f9c78d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f94f5bcc5cd97c26da3ee2e9d473fb428cedbd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchematicConverter.CLI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchematicConverter.CLI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
