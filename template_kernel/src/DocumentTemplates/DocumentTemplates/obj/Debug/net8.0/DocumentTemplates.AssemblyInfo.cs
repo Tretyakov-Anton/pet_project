@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ООО «ИПК «Электрон-Маш»")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f13974f8f04c5e0bf0ee2ecee24b853bdfdc55f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Шаблоны документов")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Шаблоны документов")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

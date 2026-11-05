@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SchematicConverter.CLI/SchematicConverter.CLI.csproj" />
+  <Project Path="SchematicConverter.Core/SchematicConverter.Core.csproj" />
+</Solution>

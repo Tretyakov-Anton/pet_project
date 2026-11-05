@@ -1,0 +1,15 @@
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\bin\Debug\net10.0\DocumentTemplates.CoreLibrary.deps.json
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\bin\Debug\net10.0\DocumentTemplates.CoreLibrary.dll
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\bin\Debug\net10.0\DocumentTemplates.CoreLibrary.pdb
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.csproj.AssemblyReference.cache
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\Avalonia\resources
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.AssemblyInfoInputs.cache
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.AssemblyInfo.cs
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.csproj.CoreCompileInputs.cache
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.sourcelink.json
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.dll
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\refint\DocumentTemplates.CoreLibrary.dll
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\DocumentTemplates.CoreLibrary.pdb
+D:\fork_avt\pet_project\template_kernel\src\DocumentTemplates\DocumentTemplates.CoreLibrary\obj\Debug\net10.0\ref\DocumentTemplates.CoreLibrary.dll
