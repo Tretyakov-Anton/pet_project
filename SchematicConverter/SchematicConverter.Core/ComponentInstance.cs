@@ -2,7 +2,7 @@
 public class ComponentInstance
 {
      //Позиционное обозначение
-    public string PositionalDestination {get;}
+    public string ReferenceDesignator {get;}
     //Тип компонента, создается обьект перечисления ComponentType
     public ComponentType Type {get;}
     //Номинал
@@ -18,23 +18,23 @@ public class ComponentInstance
         ArgumentNullException.ThrowIfNull(pin);
         foreach (var existingPin in _listPin)
         {
-            if (existingPin.NumberPin == pin.NumberPin)
+            if (existingPin.Number == pin.Number)
             {
-                throw new InvalidOperationException($"Пин с номером {pin.NumberPin} уже существует у компонента.");
+                throw new InvalidOperationException($"Пин с номером {pin.Number} уже существует у компонента.");
             }
         }
         _listPin.Add(pin);
     } 
     
-    public ComponentInstance(string positionalDestination, ComponentType type, string nominal)
+    public ComponentInstance(string referenceDesignator, ComponentType type, string nominal)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(positionalDestination);
+        ArgumentException.ThrowIfNullOrWhiteSpace(ReferenceDesignator);
         ArgumentException.ThrowIfNullOrWhiteSpace(nominal);
         if (!Enum.IsDefined(type))
         {
             throw new ArgumentOutOfRangeException(nameof(type), "Недопустимое значение типа компонента.");
         }
-        PositionalDestination = positionalDestination;
+        ReferenceDesignator = referenceDesignator;
         Type = type;
         Nominal = nominal;
     }

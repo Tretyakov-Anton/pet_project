@@ -3,16 +3,16 @@ namespace SchematicConverter.Core;
 
 public class Pin
 {
-    public int NumberPin{get; }
+    public int Number{get; }
     
-    public string NodePin { get; }
+    public string Node { get; }
 
     public Pin(int numberPin, string nodePin)
     {
        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(numberPin, 0);
        ArgumentException.ThrowIfNullOrWhiteSpace(nodePin);
-       NumberPin = numberPin;
-       NodePin = nodePin;
+       Number = numberPin;
+       Node = nodePin;
     }
 
 }
