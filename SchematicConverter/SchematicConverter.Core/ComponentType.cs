@@ -2,10 +2,12 @@
 
 public enum ComponentType
 {
-    Resitor,
+    Resistor,
     Capasistance,
     Inductor,
     CurrentSource,
     VoltageSource,
-    Transistor
+    Transistor_BJT,
+    Transistor_MOSFET
+
 }

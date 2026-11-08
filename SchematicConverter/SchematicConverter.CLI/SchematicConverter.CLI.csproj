@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SchematicConverter.Core\SchematicConverter.Core.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SchematicConverter.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec5f3636cd561ac803ba1751e94b4b6e30edede9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8e647da50eee80834fc576b9e54a04ee64d8df1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchematicConverter.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchematicConverter.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

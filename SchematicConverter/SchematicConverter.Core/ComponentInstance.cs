@@ -28,7 +28,7 @@ public class ComponentInstance
     
     public ComponentInstance(string referenceDesignator, ComponentType type, string nominal)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(ReferenceDesignator);
+        ArgumentException.ThrowIfNullOrWhiteSpace(referenceDesignator);
         ArgumentException.ThrowIfNullOrWhiteSpace(nominal);
         if (!Enum.IsDefined(type))
         {
