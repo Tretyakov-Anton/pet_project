@@ -7,23 +7,14 @@ public class NGSpiceExporter
 
     public string Export (Circuit circuit)
     {
-        StringBuilder stringBuilder = new StringBuilder("Тестовый нетлист с LTSPice");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.AppendLine("* Тестовый нетлист с LTspice");
         foreach(var item in circuit.Components)
         {
-            stringBuilder.Append(item.ReferenceDesignator + " ");
-            foreach(var itemPin in item.Pins)
-            { 
-                stringBuilder.Append(itemPin.Node + " " + item.Nominal);
-            }
-
+            var pinsString = string.Join(" ", item.Pins.Select(p => p.Node));
+            stringBuilder.AppendLine($"{item.ReferenceDesignator} {pinsString} {item.Nominal}");
         }
         stringBuilder.Append(".end");
-
-
         return stringBuilder.ToString();
-
     }
-
-
-
 }

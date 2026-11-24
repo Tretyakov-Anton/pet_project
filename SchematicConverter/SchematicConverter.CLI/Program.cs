@@ -6,13 +6,18 @@ class Program
     static void Main(string[] args)
     {
        string text = @"*test
-       R1 N001 VDD 10k
-       C1 N002 VCC 1K
-       Q123 N003 VSS 1k
+       R1 OUT N017 .33
+        R2 N012 OUT .33
+        C1 OUT N016 100n
+        R3 N016 0 10
+        R4 N010 N009 470
+        R5 N020 N019 470
+        V1 +V 0 50
+        V2 0 -V 50
        ";
 
-        NetlistParser netlist = new NetlistParser();
-        Circuit circuit = netlist.Parse(text);
+       INetlistParser parser = new LTSpiceParser();
+       Circuit circuit = parser.Parse(text);
 
         foreach(var item in circuit.Components)
         {
@@ -23,7 +28,5 @@ class Program
         {
             Console.WriteLine($"Узлы - {item.Name} {item.Type}");
         }
-
-
     }
 }

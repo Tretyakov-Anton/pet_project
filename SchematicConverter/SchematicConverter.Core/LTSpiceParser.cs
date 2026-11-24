@@ -1,7 +1,7 @@
 ﻿
 namespace SchematicConverter.Core;
 
-public class LTSpiceParser : INetlustParser
+public class LTSpiceParser : INetlistParser
 {   
     public ComponentInstance ParseLine(string line)
     {
@@ -73,10 +73,14 @@ public class LTSpiceParser : INetlustParser
         var lines = netlistText.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
         string lineNetlist;
         ComponentInstance component;
+
+        List<string> updateLineNetlist;
+
+
         foreach(var item in lines)
         {
             lineNetlist = item.Trim();
-            if(lineNetlist.StartsWith("*") || lineNetlist.StartsWith(".") || lineNetlist.Length == 0)
+            if(lineNetlist.StartsWith("*") || lineNetlist.Length == 0 || lineNetlist.StartsWith(";"))
             {
                 continue;
             }
@@ -100,6 +104,25 @@ public class LTSpiceParser : INetlustParser
 
     }
 
+
+    private List<string> StringProcessing(List<string> updateLineNetlist)
+    {
+        if (updateLineNetlist == null || updateLineNetlist.Count == 0)
+        {
+            throw new InvalidOperationException("Список пуст или не инициализирован.");
+        }
+        foreach(var item in updateLineNetlist)
+        {
+            if (item.StartsWith("+"))
+            {
+                item.Trim().Substring(1);       
+            }
+            updateLineNetlist.Add(item);
+        }
+
+
+        return updateLineNetlist;
+    }
 
 
 
